@@ -1,3 +1,8 @@
 .img-circle {
     max-height: 50px;
 }
+
+button {
+    max-width: 105px;
+    max-height: 50px;
+}
