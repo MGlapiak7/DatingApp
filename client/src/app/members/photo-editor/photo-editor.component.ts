@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { take } from 'rxjs/operators'
 import { MembersService } from 'src/app/_services/members.service';
 import { Photo } from 'src/app/_models/photo';
+import { AdminService } from 'src/app/_services/admin.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -19,8 +20,9 @@ export class PhotoEditorComponent implements OnInit {
   hasBaseDropzoneOver = false;
   baseUrl = environment.apiUrl;
   user: User;
+  photos: Photo[];
 
-  constructor(private accountService: AccountService, private memberService: MembersService) {
+  constructor(private accountService: AccountService, private memberService: MembersService, private adminService: AdminService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
    }
 
