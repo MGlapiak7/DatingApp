@@ -1,4 +1,3 @@
-using Microsoft.OpenApi.Models;
 using API.Extensions;
 using API.Middleware;
 using API.SignalR;
@@ -33,8 +32,9 @@ namespace API
 
             app.UseRouting();
 
-            app.UseCors(x => x.AllowAnyHeader()
+            app.UseCors(x => x
                 .AllowAnyMethod()
+                .AllowAnyHeader()
                 .AllowCredentials()
                 .WithOrigins("https://localhost:4200"));
 
@@ -51,6 +51,7 @@ namespace API
                 endpoints.MapHub<MessageHub>("hubs/message");
                 endpoints.MapFallbackToController("Index", "Fallback");
             });
+
         }
     }
 }
