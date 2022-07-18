@@ -1,13 +1,4 @@
-using API.DTOs;
-using API.Entities;
-using API.Helpers;
-using API.Interfaces;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Microsoft.EntityFrameworkCore;
-
-namespace API.Data
-{
+namespace API.Data;
     public class UserRepository : IUserRepository
     {
         private readonly DataContext _context;
@@ -94,4 +85,3 @@ namespace API.Data
             _context.Entry(user).State = EntityState.Modified;
         }
     }
-}

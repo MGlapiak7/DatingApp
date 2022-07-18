@@ -1,8 +1,4 @@
-using API.Interfaces;
-using AutoMapper;
-
-namespace API.Data
-{
+namespace API.Data;
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IMapper _mapper;
@@ -31,4 +27,3 @@ namespace API.Data
             return _context.ChangeTracker.HasChanges();
         }
     }
-}
